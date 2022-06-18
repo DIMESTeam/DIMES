@@ -1,1 +1,1 @@
-# DIMES-TSP
+# DIMES
