@@ -44,7 +44,7 @@ Parameters of our trained models are provided [here](@). Please put the reformat
 
 #### Test Instances
 
-The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We reformat them for convenience for our code. Reformatted test instances are provided [here](@). Please put the reformatted test instances in folder `data/test`.
+The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformated them for our code. Reformatted test instances are provided [here](@). Please put the reformatted test instances in folder `data/test`.
 
 #### Predicted Heatmaps
 
