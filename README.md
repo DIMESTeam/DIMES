@@ -13,6 +13,7 @@ The code for DIMES-TSP is in the directory `TSP`. We use $N$ to denote the numbe
 Before running our code, please install our TSP sampler:
 
 ```bash
+cd TSP
 pip install ./torch_sampling
 ```
 
@@ -34,17 +35,17 @@ To train a model from scratch, please run:
 ./train_tsp{N}.sh
 ```
 
-Parameters of trained models will be saved in `data/models`, whose name will include a timestamp.
+Parameters of trained models will be saved in folder `models/`, and its file name will include a timestamp.
 
 ### Data
 
 #### Trained Models
 
-Parameters of our trained models are provided [here](@). Please put the reformatted test instances in folder `data/models`.
+Parameters of our trained models are provided [here](@). Please put the reformatted test instances in folder `models/`.
 
 #### Test Instances
 
-The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformated them for our code. Reformatted test instances are provided [here](@). Please put the reformatted test instances in folder `data/test`.
+The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformated them for our code. Reformatted test instances are provided [here](@). Please put the reformatted test instances in folder `input/`.
 
 #### Predicted Heatmaps
 
