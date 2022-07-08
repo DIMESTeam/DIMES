@@ -1,4 +1,4 @@
- python train.py \
+python train.py \
     --seed 123456789 \
     --device cuda:0 \
     --n_nodes 10000 \
@@ -26,4 +26,3 @@
     --te_tune_sample_size 1000 \
     --te_greedy_size 1000 \
     --te_net 50
-    
