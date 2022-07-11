@@ -1,0 +1,12 @@
+name: intel_treesearch
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy
+  - scipy
+  - pip
+  - networkx
+  - pip:
+    - tensorflow==2.2.0

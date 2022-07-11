@@ -69,6 +69,24 @@ Predicted heatmaps of test instances are provided [here](@).
 
 ## DIMES-MIS
 
-The code for DIMES-MIS is in the directory `MIS`.
+The code for DIMES-MIS is in the directory `MIS`. Our code is adapted from the code of [mis-benchmark-framework
+](https://github.com/MaxiBoether/mis-benchmark-framework)
 
-### @TODO
+### Usage
+
+#### Installation
+
+Before running our code, please install our MIS sampler:
+
+```bash
+cd MIS
+conda env create -f environment.yml
+```
+
+#### Reproduction
+
+```bash
+cd MIS
+bash scripts/solve_intel_dimes_er.sh
+bash scripts/solve_intel_dimes_sat.sh
+```
