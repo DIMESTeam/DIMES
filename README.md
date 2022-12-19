@@ -45,6 +45,16 @@ pip install ./torch_sampling
 [W OperatorEntry.cpp:111] Warning: Registering a kernel (registered by RegisterOperators) for operator torch_scatter::segment_sum_csr for dispatch key (catch all) that overwrote a previously registered kernel with the same dispatch key for the same operator. (function registerKernel)
 ```
 
+#### Reproduction
+
+To reproduce our results, please run:
+
+```bash
+cd TSP/TSP-KNN
+./tsp{N}_test_{decoder}.sh tsp{N}
+```
+where `decoder` can be `G` / `AS_G` / `S` / `AS_S` / `MCTS` / `AS_MCTS`.
+
 #### Training
 
 To train a model from scratch, please run:
@@ -68,16 +78,6 @@ cd TSP/TSP-KNN
 ```
 
 where `save_name` is the one generated during training, and `decoder` can be `G` / `AS_G` / `S` / `AS_S` / `MCTS` / `AS_MCTS`.
-
-#### Reproduction
-
-To reproduce our results, please run:
-
-```bash
-cd TSP/TSP-KNN
-./tsp{N}_test_{decoder}.sh tsp{N}
-```
-where `decoder` can be `G` / `AS_G` / `S` / `AS_S` / `MCTS` / `AS_MCTS`.
 
 ### Resources
 
