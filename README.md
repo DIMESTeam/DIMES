@@ -17,8 +17,6 @@ The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `
 
 We use $N$ to denote the number of nodes.
 
-### Usage
-
 ### Dependencies
 
 - CUDA 11.0
@@ -27,6 +25,8 @@ We use $N$ to denote the number of nodes.
 - PyTorch Sparse 0.6.9
 - PyTorch Cluster 1.5.9
 - PyTorch Geometric 2.0.4
+
+### Usage
 
 #### Installation
 
