@@ -5,7 +5,7 @@ python3 ./test_AS_G.py \
     --knn_k 50 \
     --outer_opt AdamW \
     --outer_opt_lr 0.001 \
-    --outer_opt_wd 1e-05 \
+    --outer_opt_wd 1e-5 \
     --inner_opt AdamW \
     --inner_opt_lr 0.01 \
     --inner_opt_wd 0.0001 \
