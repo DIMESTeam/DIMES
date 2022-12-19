@@ -87,67 +87,93 @@ public:
     }
 };
 
-class TspSampler : public TspBaseSampler {
+class TspSampler: public TspBaseSampler {
 public:
-    torch::Tensor y;
+    using Super = TspBaseSampler;
+    torch::Tensor y, tours;
     TspSampler(const torch::Tensor & x,
         const torch::Tensor & deg, const torch::Tensor & edge_v,
         int sample_size, torch::TensorOptions optionsF):
-        TspBaseSampler(x, deg, edge_v, sample_size, optionsF),
-        y(torch::zeros(sample_size, optionsF)) {}
+        Super(x, deg, edge_v, sample_size, optionsF),
+        y(torch::zeros(sample_size, optionsF)),
+        tours(torch::empty({n_nodes, sample_size}, optionsI)) {}
     virtual ~TspSampler() {}
+    virtual void start(const torch::Tensor & v0) {
+        this->Super::start(v0);
+        this->tours.index_put_({0}, v0);
+    }
     virtual void transit(int i, const torch::Tensor & u, const torch::Tensor & v) {
-        this->TspBaseSampler::transit(i, u, v);
+        this->Super::transit(i, u, v);
         this->y.add_(at::pairwise_distance(this->x.index({u}), this->x.index({v})));
+        this->tours.index_put_({i}, v);
     }
     virtual void finalize(const torch::Tensor & u, const torch::Tensor & v0) {
-        this->TspBaseSampler::finalize(u, v0);
+        this->Super::finalize(u, v0);
         this->y.add_(at::pairwise_distance(this->x.index({u}), this->x.index({v0})));
     }
     virtual std::vector<torch::Tensor> result() const {
-        auto result = this->TspBaseSampler::result();
+        auto result = this->Super::result();
         result.push_back(this->y);
+        result.push_back(this->tours.t());
         return result;
     }
 };
 
-class TspParSampler : public TspSampler {
+class TspGreedySampler: public TspSampler {
 public:
+    using Super = TspSampler;
     torch::Tensor par, neg_inf;
-    TspParSampler(const torch::Tensor & x,
+    TspGreedySampler(const torch::Tensor & x,
         const torch::Tensor & deg, const torch::Tensor & edge_v,
         const torch::Tensor & par, int sample_size):
-        TspSampler(x, deg, edge_v, sample_size, par.options()),
-        par((par - par.mean()).clone()), neg_inf(torch::full({1}, FLOAT_NEG_INF, par.options())) {}
-    virtual ~TspParSampler() {}
+        Super(x, deg, edge_v, sample_size, par.options()),
+        par((par - par.mean()).clone()),
+        neg_inf(torch::full({1}, FLOAT_NEG_INF, par.options())) {}
+    virtual ~TspGreedySampler() {}
+    virtual torch::Tensor init() {
+        assert(this->n_nodes >= this->sample_size);
+        return torch::randperm(this->n_nodes, this->optionsI)
+            .index({torch::indexing::Slice(0, this->sample_size)});
+    }
     virtual torch::Tensor compute_scores(const torch::Tensor & e_msk, const torch::Tensor & e_idx) {
         return this->par.index({e_idx}).where(e_msk, this->neg_inf);
     }
 };
 
-class TspSoftmaxSampler : public TspParSampler {
+class TspSoftmaxSampler: public TspGreedySampler {
 public:
+    using Super = TspGreedySampler;
     float y_bl;
     torch::Tensor par_e;
-    std::vector<torch::Tensor> gi_i_idx, gi_s_idx, gi_p_idx, gi_p_grp, gi_probs;
     TspSoftmaxSampler(const torch::Tensor & x,
         const torch::Tensor & deg, const torch::Tensor & edge_v,
         const torch::Tensor & par, int sample_size, float y_bl):
-        TspParSampler(x, deg, edge_v, par, sample_size), y_bl(y_bl) {
+        Super(x, deg, edge_v, par, sample_size), y_bl(y_bl) {}
+    virtual ~TspSoftmaxSampler() {}
+    virtual torch::Tensor init() {
+        return torch::randint(this->n_nodes, {this->sample_size}, this->optionsI);
+    }
+    virtual torch::Tensor compute_scores(const torch::Tensor & e_msk, const torch::Tensor & e_idx) {
+        this->par_e = this->Super::compute_scores(e_msk, e_idx);
+        return this->par_e - torch::empty_like(this->par_e).exponential_().log();
+    }
+};
+
+class TspSoftmaxGradSampler: public TspSoftmaxSampler {
+public:
+    using Super = TspSoftmaxSampler;
+    std::vector<torch::Tensor> gi_i_idx, gi_s_idx, gi_p_idx, gi_p_grp, gi_probs;
+    TspSoftmaxGradSampler(const torch::Tensor & x,
+        const torch::Tensor & deg, const torch::Tensor & edge_v,
+        const torch::Tensor & par, int sample_size, float y_bl):
+        Super(x, deg, edge_v, par, sample_size, y_bl) {
         gi_i_idx.reserve(this->n_nodes - 1);
         gi_s_idx.reserve(this->n_nodes - 1);
         gi_p_idx.reserve(this->n_nodes - 1);
         gi_p_grp.reserve(this->n_nodes - 1);
         gi_probs.reserve(this->n_nodes - 1);
     }
-    virtual ~TspSoftmaxSampler() {}
-    virtual torch::Tensor init() {
-        return torch::randint(this->n_nodes, {this->sample_size}, this->optionsI);
-    }
-    virtual torch::Tensor compute_scores(const torch::Tensor & e_msk, const torch::Tensor & e_idx) {
-        this->par_e = this->TspParSampler::compute_scores(e_msk, e_idx);
-        return this->par_e - torch::empty_like(this->par_e).exponential_().log();
-    }
+    virtual ~TspSoftmaxGradSampler() {}
     virtual void update(
         const torch::Tensor & v_idx_, const torch::Tensor & s_idx_,
         const torch::Tensor & e_idx_, const torch::Tensor & e_msk_,
@@ -164,7 +190,8 @@ public:
         this->gi_probs.push_back(probs_);
     }
     virtual std::vector<torch::Tensor> result() const {
-        auto result = this->TspParSampler::result();
+        auto result = this->Super::result();
+        result.pop_back();
         auto grad = torch::zeros(this->par.sizes(), this->optionsF);
         auto coefs = this->y;
         if (std::isnan(this->y_bl))
@@ -184,48 +211,26 @@ public:
     }
 };
 
-class TspGreedySampler : public TspParSampler {
-public:
-    torch::Tensor tours;
-    TspGreedySampler(const torch::Tensor & x,
-        const torch::Tensor & deg, const torch::Tensor & edge_v,
-        const torch::Tensor & par, int sample_size):
-        TspParSampler(x, deg, edge_v, par, sample_size),
-        tours(torch::empty({n_nodes, sample_size}, optionsI)) {}
-    virtual ~TspGreedySampler() {}
-    virtual torch::Tensor init() {
-        assert(this->n_nodes >= this->sample_size);
-        return torch::randperm(this->n_nodes, this->optionsI)
-            .index({torch::indexing::Slice(0, this->sample_size)});
-    }
-    virtual void start(const torch::Tensor & v0) {
-        this->TspParSampler::start(v0);
-        this->tours.index_put_({0}, v0);
-    }
-    virtual void transit(int i, const torch::Tensor & u, const torch::Tensor & v) {
-        this->TspParSampler::transit(i, u, v);
-        this->tours.index_put_({i}, v);
-    }
-    virtual std::vector<torch::Tensor> result() const {
-        auto result = this->TspParSampler::result();
-        result.push_back(this->tours.t());
-        return result;
-    }
-};
+std::vector<torch::Tensor> tsp_greedy(const torch::Tensor & x,
+    const torch::Tensor & deg, const torch::Tensor & edge_v,
+    const torch::Tensor & par, int sample_size) {
+    return TspGreedySampler(x, deg, edge_v, par, sample_size).sample(); // ys, tours
+}
+
+std::vector<torch::Tensor> tsp_softmax(const torch::Tensor & x,
+    const torch::Tensor & deg, const torch::Tensor & edge_v,
+    const torch::Tensor & par, int sample_size, float y_bl) {
+    return TspSoftmaxSampler(x, deg, edge_v, par, sample_size, y_bl).sample(); // ys, tours
+}
 
 std::vector<torch::Tensor> tsp_softmax_grad(const torch::Tensor & x,
     const torch::Tensor & deg, const torch::Tensor & edge_v,
     const torch::Tensor & par, int sample_size, float y_bl) {
-    return TspSoftmaxSampler(x, deg, edge_v, par, sample_size, y_bl).sample();
-}
-
-std::vector<torch::Tensor> tsp_greedy(const torch::Tensor & x,
-    const torch::Tensor & deg, const torch::Tensor & edge_v,
-    const torch::Tensor & par, int sample_size) {
-    return TspGreedySampler(x, deg, edge_v, par, sample_size).sample();
+    return TspSoftmaxGradSampler(x, deg, edge_v, par, sample_size, y_bl).sample(); // ys, grad
 }
 
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
-    m.def("tsp_softmax_grad", &tsp_softmax_grad, "TSP softmax gradient");
-    m.def("tsp_greedy",       &tsp_greedy,       "TSP greedy");
+    m.def("tsp_greedy",       &tsp_greedy,       "TSP greedy sampling");
+    m.def("tsp_softmax",      &tsp_softmax,      "TSP softmax sampling");
+    m.def("tsp_softmax_grad", &tsp_softmax_grad, "TSP softmax samping and gradient");
 }

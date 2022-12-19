@@ -1,0 +1,21 @@
+./train.py \
+    --seed 123456789 \
+    --device cuda:0 \
+    --n_nodes 10000 \
+    --knn_k 50 \
+    --outer_opt AdamW \
+    --outer_opt_lr 0.001 \
+    --outer_opt_wd 1e-5 \
+    --inner_opt AdamW \
+    --inner_opt_lr 0.01 \
+    --inner_opt_wd 0.0001 \
+    --net_units 32 \
+    --net_act silu \
+    --emb_agg mean \
+    --emb_depth 12 \
+    --par_depth 3 \
+    --tr_batch_size 3 \
+    --tr_outer_steps 50 \
+    --tr_inner_steps 12 \
+    --tr_inner_sample_size 100 \
+    --tr_inner_greedy_size 1
