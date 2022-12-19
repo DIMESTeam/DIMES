@@ -32,7 +32,7 @@ If you have any questions about the TSP code, please feel free to contact *rq5 A
 
 #### Installation
 
-Before running our code, please ensure PyTorch Scatter is already installed and then install our TSP sampler:
+Before running our code, please ensure **PyTorch Scatter** is already installed and then install our TSP sampler:
 
 ```bash
 cd TSP
