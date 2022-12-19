@@ -2,6 +2,15 @@
 
 A meta-learner for large-scale combinatorial optimization problems including the traveling salesman problem (TSP) and the maximum independent set problem (MIS)
 
+```tex
+@inproceedings{qiu2022dimes,
+title={{DIMES}: A differentiable meta solver for combinatorial optimization problems},
+author={Ruizhong Qiu and Zhiqing Sun and Yiming Yang},
+booktitle={Advances in Neural Information Processing Systems},
+year={2022}
+}
+```
+
 ## DIMES-TSP
 
 The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `TSP-KNN` employs KNN edge pruning, while TSP-Full runs on the full graph.
