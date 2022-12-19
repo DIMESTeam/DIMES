@@ -15,9 +15,9 @@ year={2022}
 
 The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `TSP-KNN` employs KNN edge pruning, while TSP-Full runs on the full graph.
 
-We use $N$ to denote the number of nodes.
-
 If you have any questions about the TSP code, please feel free to contact *rq5 AT illinois DOT edu* .
+
+We use $N$ to denote the number of nodes and $K$ to denote the number of neighbors in KNN pruning.
 
 ### Dependencies
 
@@ -66,7 +66,7 @@ cd TSP/TSP-KNN
 
 Output (parameters of trained models) will be saved in folder `output/`.
 
-The output will have a prefix generated automatically. We call this prefix `save_name`. For example, `save_name` of the file `output/tsp500~net120.pt` is `tsp500`.
+The output will have a prefix generated automatically. We call this prefix `save_name`. For example, `save_name` of the file `output/tsp500~net120.pt` is `tsp500`. A generated `save_name` is like `dimes-tsp{N}-knn{K}@{timestamp}`, where a timestamp is to ensure uniqueness of filenames.
 
 #### Testing
 
