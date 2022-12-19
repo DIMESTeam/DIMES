@@ -1,4 +1,4 @@
-./train.py \
+python3 ./train.py \
     --seed 123456789 \
     --device cuda:0 \
     --n_nodes 500 \

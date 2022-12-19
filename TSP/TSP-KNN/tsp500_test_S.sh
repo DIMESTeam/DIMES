@@ -1,4 +1,4 @@
-./test_AS_S.py \
+python3 ./test_AS_S.py \
     --seed 123456789 \
     --device cuda:0 \
     --n_nodes 500 \

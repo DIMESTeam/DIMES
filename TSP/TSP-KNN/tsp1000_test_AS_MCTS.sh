@@ -1,4 +1,4 @@
-./test_AS_MCTS.py \
+python3 ./test_AS_MCTS.py \
     --seed 123456789 \
     --device cuda:0 \
     --n_nodes 1000 \
