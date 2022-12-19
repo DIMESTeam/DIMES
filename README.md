@@ -21,16 +21,16 @@ We use $N$ to denote the number of nodes.
 
 - CUDA 11.0
 - PyTorch 1.7.0
-- PyTorch Scatter 2.0.7
-- PyTorch Sparse 0.6.9
-- PyTorch Cluster 1.5.9
-- PyTorch Geometric 2.0.4
+- [PyTorch Scatter](https://github.com/rusty1s/pytorch_scatter) 2.0.7
+- [PyTorch Sparse](https://github.com/rusty1s/pytorch_sparse) 0.6.9
+- [PyTorch Cluster](https://github.com/rusty1s/pytorch_cluster) 1.5.9
+- [PyTorch Geometric](https://github.com/pyg-team/pytorch_geometric) 2.0.4
 
 ### Usage
 
 #### Installation
 
-Before running our code, please install our TSP sampler:
+Before running our code, please ensure PyTorch Scatter is already installed and then install our TSP sampler:
 
 ```bash
 cd TSP
