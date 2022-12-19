@@ -27,9 +27,9 @@ To train a model from scratch, please run:
 ./tsp{N}_train.sh
 ```
 
-Parameters of trained models will be saved in folder `output/`.
+Output (parameters of trained models) will be saved in folder `output/`.
 
-The output files will have a common prefix generated automatically. We call this prefix `save_name`.
+The output will have a prefix generated automatically. We call this prefix `save_name`. For example, `save_name` is `tsp500` for the file `tsp500~net120.pt`.
 
 #### Testing
 
