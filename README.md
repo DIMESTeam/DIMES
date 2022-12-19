@@ -66,7 +66,7 @@ cd TSP/TSP-KNN
 
 Output (parameters of trained models) will be saved in folder `output/`.
 
-The output will have a prefix generated automatically. We call this prefix `save_name`. For example, `save_name` is `tsp500` for the file `tsp500~net120.pt`.
+The output will have a prefix generated automatically. We call this prefix `save_name`. For example, `save_name` of the file `output/tsp500~net120.pt` is `tsp500`.
 
 #### Testing
 
