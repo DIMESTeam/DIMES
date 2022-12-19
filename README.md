@@ -17,7 +17,7 @@ The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `
 
 We use $N$ to denote the number of nodes.
 
-If you have any questions about the code, please feel free to contact *rq5 AT illinois DOT edu* .
+If you have any questions about the TSP code, please feel free to contact *rq5 AT illinois DOT edu* .
 
 ### Dependencies
 
