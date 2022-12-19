@@ -10,6 +10,15 @@ We use $N$ to denote the number of nodes.
 
 ### Usage
 
+### Dependencies
+
+- CUDA 11.0
+- PyTorch 1.7.0
+- PyTorch Scatter 2.0.7
+- PyTorch Sparse 0.6.9
+- PyTorch Cluster 1.5.9
+- PyTorch Geometric 2.0.4
+
 #### Installation
 
 Before running our code, please install our TSP sampler:
@@ -24,6 +33,7 @@ pip install ./torch_sampling
 To train a model from scratch, please run:
 
 ```bash
+cd TSP/TSP-KNN
 ./tsp{N}_train.sh
 ```
 
@@ -36,6 +46,7 @@ The output will have a prefix generated automatically. We call this prefix `save
 To test a trained model, please run:
 
 ```bash
+cd TSP/TSP-KNN
 ./tsp{N}_test_{decoding}.sh {save_name}
 ```
 
@@ -52,15 +63,6 @@ The test instances are originally provided by [Fu et al. (2021)](https://github.
 #### Trained Models
 
 Our trained models `tsp{N}_net*.pt` are in folder `output/`. Please put the reformatted test instances in folder `models/`.
-
-### Dependencies
-
-- CUDA 11.0
-- PyTorch 1.7.0
-- PyTorch Scatter 2.0.7
-- PyTorch Sparse 0.6.9
-- PyTorch Cluster 1.5.9
-- PyTorch Geometric 2.0.4
 
 ### URLs for Baselines
 
