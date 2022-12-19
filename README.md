@@ -83,7 +83,7 @@ where `decoder` can be `G` / `AS_G` / `S` / `AS_S` / `MCTS` / `AS_MCTS`.
 
 #### Test Instances
 
-The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformatted them for our code. Reformatted test instances are provided in folder `input`.
+The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformatted them for our code. Reformatted test instances are provided in folder `input/`.
 
 #### Trained Models
 
