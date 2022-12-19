@@ -37,6 +37,7 @@ To test a trained model, please run:
 
 ```bash
 ./tsp{N}_test_{decoding}.sh {save_name}
+```
 
 where `save_name` is the one generated during training, and `decoding` can be `G`, `AS_G`, `S`, `AS_S`, `MCTS`, or `AS_MCTS`.
 
