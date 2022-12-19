@@ -67,4 +67,6 @@ def args_to_list(args):
     return [[f'--{k}', str(v)] for k, v in args.items()]
 
 def args_init(**kwargs):
-    return args_prep(Dict(vars(args_parser().parse_args(sum(args_to_list(kwargs), [])))))
+    args = args_prep(Dict(vars(args_parser().parse_args(sum(args_to_list(kwargs), [])))))
+    print(args)
+    return args
