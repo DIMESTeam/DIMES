@@ -39,6 +39,12 @@ cd TSP
 pip install ./torch_sampling
 ```
 
+**Notice:** If you see the following warning when running our code, just ignore it.
+
+```
+[W OperatorEntry.cpp:111] Warning: Registering a kernel (registered by RegisterOperators) for operator torch_scatter::segment_sum_csr for dispatch key (catch all) that overwrote a previously registered kernel with the same dispatch key for the same operator. (function registerKernel)
+```
+
 #### Training
 
 To train a model from scratch, please run:
