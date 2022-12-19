@@ -18,7 +18,7 @@ python3 ./test_AS_S.py \
     --te_range_l 0 \
     --te_range_r 128 \
     --te_batch_size 10 \
-    --te_tune_steps 100 \
+    --te_tune_steps 0 \
     --te_tune_sample_size 500 \
     --te_sample_size 4096 \
     --te_sample_tau 0.01 \
