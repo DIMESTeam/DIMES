@@ -64,10 +64,10 @@ To test a trained model, please run:
 
 ```bash
 cd TSP/TSP-KNN
-./tsp{N}_test_{decoding}.sh {save_name}
+./tsp{N}_test_{decoder}.sh {save_name}
 ```
 
-where `save_name` is the one generated during training, and `decoding` can be `G`, `AS_G`, `S`, `AS_S`, `MCTS`, or `AS_MCTS`.
+where `save_name` is the one generated during training, and `decoder` can be `G` / `AS_G` / `S` / `AS_S` / `MCTS` / `AS_MCTS`.
 
 #### Reproduction
 
@@ -75,8 +75,9 @@ To reproduce our results, please run:
 
 ```bash
 cd TSP/TSP-KNN
-./tsp{N}_test_{decoding}.sh tsp{N}
+./tsp{N}_test_{decoder}.sh tsp{N}
 ```
+where `decoder` can be `G` / `AS_G` / `S` / `AS_S` / `MCTS` / `AS_MCTS`.
 
 ### Resources
 
