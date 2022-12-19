@@ -45,7 +45,6 @@ for i in trange(args.te_range_l, args.te_range_r):
     save_name_i = f'{save_name}~graph{i}'
     graph = graph_list[i - args.te_range_l]
     _, _, par1, _, _ = net_infer_greedy(args, net, graph, verbose = True, plot = True, save_name = save_name_i)
-    par1 = torch.load(osp.join(args.output_dir, save_name) + f'~graph{i}~par1.pt', map_location = args.device)
     matrix = get_matrix(args.n_nodes, par1, graph.edge_index)
     sorted_vector = np.sort(matrix, axis=-1)[:, -5].reshape(-1, 1)
     matrix[(matrix - sorted_vector) < 0] -= 1e9
