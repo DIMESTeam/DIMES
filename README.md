@@ -58,7 +58,7 @@ Output (parameters of trained models) will be saved in folder `output/`.
 
 The output will have a prefix generated automatically. We call this prefix `save_name`. For example, `save_name` is `tsp500` for the file `tsp500~net120.pt`.
 
-#### Testing / Reproduction
+#### Testing
 
 To test a trained model, please run:
 
@@ -69,7 +69,14 @@ cd TSP/TSP-KNN
 
 where `save_name` is the one generated during training, and `decoding` can be `G`, `AS_G`, `S`, `AS_S`, `MCTS`, or `AS_MCTS`.
 
-To reproduce our results, please let `save_name` be `tsp{N}` so that our trained model will be loaded.
+#### Reproduction
+
+To reproduce our results, please run:
+
+```bash
+cd TSP/TSP-KNN
+./tsp{N}_test_{decoding}.sh tsp{N}
+```
 
 ### Resources
 
