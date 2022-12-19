@@ -1,6 +1,7 @@
 import argparse
 
 from inc.utils import *
+from inc.tsp_utils import *
 
 def args_parser():
     parser = argparse.ArgumentParser()
@@ -58,6 +59,8 @@ def args_prep(args):
 
     args.net_act_fn = getattr(F, args.net_act)
     args.emb_agg_fn = getattr(gnn, f'global_{args.emb_agg}_pool')
+
+    args.save_name = tsp_save_name(args, args.save_name)
 
     os.makedirs(args.output_dir, exist_ok = True)
 

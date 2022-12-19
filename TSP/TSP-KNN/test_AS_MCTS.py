@@ -2,7 +2,8 @@ from inc.tsp_args import *
 from inc.tsp_core import *
 
 args = args_init()
-save_name = tsp_save_name(args) if len(args.save_name) == 0 else args.save_name
+save_name = args.save_name
+print(save_name)
 
 mcts_dir = 'MCTS_500_1000' if args.n_nodes <= 1000 else 'MCTS_10000'
 

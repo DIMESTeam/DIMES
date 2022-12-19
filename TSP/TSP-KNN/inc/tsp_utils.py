@@ -4,10 +4,11 @@ from inc.utils import *
 __TSP_VERSION__ = 1.1
 
 # generate save_name
-def tsp_save_name(args, timestamp = None):
-    if timestamp is None:
+def tsp_save_name(args, save_name = None):
+    if not save_name:
         timestamp = int(time.time() * 100)
-    return f'{args.output_dir}/dimes{__TSP_VERSION__}-tsp{num_abbr(args.n_nodes)}-knn{args.knn_k}@{timestamp}'
+        save_name = f'dimes{__TSP_VERSION__}-tsp{num_abbr(args.n_nodes)}-knn{args.knn_k}@{timestamp}'
+    return osp.join(args.output_dir, save_name)
 
 # interfaces for torch_sampling
 
