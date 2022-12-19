@@ -4,7 +4,9 @@ A meta-learner for large-scale combinatorial optimization problems including the
 
 ## DIMES-TSP
 
-The code for DIMES-TSP is in the directory `TSP`. We use $N$ to denote the number of nodes.
+The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `TSP-KNN` employs KNN edge pruning, while TSP-Full runs on the full graph.
+
+We use $N$ to denote the number of nodes.
 
 ### Usage
 
@@ -17,39 +19,38 @@ cd TSP
 pip install ./torch_sampling
 ```
 
-#### Reproduction
-
-To reproduce our results, please run:
-
-```bash
-./test_tsp{N}.sh
-```
-
-Our trained models will be used to predict heatmaps of test instances.
-
 #### Training
 
 To train a model from scratch, please run:
 
 ```bash
-./train_tsp{N}.sh
+./tsp{N}_train.sh
 ```
 
-Parameters of trained models will be saved in folder `models/`, and its file name will include a timestamp.
+Parameters of trained models will be saved in folder `output/`.
 
-### Data
+The output files will have a common prefix generated automatically. We call this prefix `save_name`.
 
-#### Trained Models
+#### Testing
 
-Parameters of our trained models are provided [here](@). Please put the reformatted test instances in folder `models/`.
+To test a trained model, please run:
+
+```bash
+./tsp{N}_test_{decoding}.sh {save_name}
+
+where `save_name` is the one generated during training, and `decoding` can be `G`, `AS_G`, `S`, `AS_S`, `MCTS`, or `AS_MCTS`.
+
+To reproduce our results, please let `save_name` be `tsp{N}` so that our trained model will be loaded.
+
+### Resources
 
 #### Test Instances
 
-The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformated them for our code. Reformatted test instances are provided [here](@). Please put the reformatted test instances in folder `input/`.
+The test instances are originally provided by [Fu et al. (2021)](https://github.com/Spider-SCNU/TSP). We have reformatted them for our code. Reformatted test instances are provided in folder `input`.
 
-#### Predicted Heatmaps
+#### Trained Models
 
-Predicted heatmaps of test instances are provided [here](@).
+Our trained models `tsp{N}_net*.pt` are in folder `output/`. Please put the reformatted test instances in folder `models/`.
 
 ### Dependencies
 
@@ -60,7 +61,7 @@ Predicted heatmaps of test instances are provided [here](@).
 - PyTorch Cluster 1.5.9
 - PyTorch Geometric 2.0.4
 
-### Baselines
+### URLs for Baselines
 
 - EAN (Deudon et al., 2018): https://github.com/MichelDeudon/encode-attend-navigate
 - AM (Kool et al., 2019): https://github.com/wouterkool/attention-learn-to-route
