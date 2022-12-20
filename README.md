@@ -30,6 +30,12 @@ We use $N$ to denote the number of nodes and $K$ to denote the number of neighbo
 
 ### Usage
 
+**Notice:** If you see the following warning when running our code, just ignore it.
+
+```
+[W OperatorEntry.cpp:111] Warning: Registering a kernel (registered by RegisterOperators) for operator torch_scatter::segment_sum_csr for dispatch key (catch all) that overwrote a previously registered kernel with the same dispatch key for the same operator. (function registerKernel)
+```
+
 #### Installation
 
 Before running our code, please ensure **PyTorch Scatter** is already installed and then install our TSP sampler:
@@ -37,12 +43,6 @@ Before running our code, please ensure **PyTorch Scatter** is already installed 
 ```bash
 cd TSP
 pip install ./torch_sampling
-```
-
-**Notice:** If you see the following warning when running our code, just ignore it.
-
-```
-[W OperatorEntry.cpp:111] Warning: Registering a kernel (registered by RegisterOperators) for operator torch_scatter::segment_sum_csr for dispatch key (catch all) that overwrote a previously registered kernel with the same dispatch key for the same operator. (function registerKernel)
 ```
 
 #### Reproduction
