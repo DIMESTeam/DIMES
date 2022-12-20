@@ -2,6 +2,8 @@
 
 A meta-learner for large-scale combinatorial optimization problems including the traveling salesman problem (TSP) and the maximum independent set problem (MIS).
 
+If you use our code, please cite [our paper](https://openreview.net/forum?id=9u05zr0nhx):
+
 ```bibtex
 @inproceedings{qiu2022dimes,
   title={{DIMES}: A differentiable meta solver for combinatorial optimization problems},
