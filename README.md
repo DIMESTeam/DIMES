@@ -4,10 +4,10 @@ A meta-learner for large-scale combinatorial optimization problems including the
 
 ```tex
 @inproceedings{qiu2022dimes,
-title={{DIMES}: A differentiable meta solver for combinatorial optimization problems},
-author={Ruizhong Qiu and Zhiqing Sun and Yiming Yang},
-booktitle={Advances in Neural Information Processing Systems},
-year={2022}
+  title={{DIMES}: A differentiable meta solver for combinatorial optimization problems},
+  author={Ruizhong Qiu and Zhiqing Sun and Yiming Yang},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2022}
 }
 ```
 
