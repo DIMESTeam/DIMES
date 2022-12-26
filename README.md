@@ -15,7 +15,7 @@ If you use our code, please cite [our paper](https://openreview.net/forum?id=9u0
 
 ## DIMES-TSP
 
-The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `TSP-KNN` employs KNN edge pruning, while TSP-Full runs on the full graph.
+The code for DIMES-TSP is in the directories `TSP/TSP-KNN` and `TSP/TSP-Full`. `TSP-KNN` employs KNN edge pruning, while `TSP-Full` runs on the full graph.
 
 If you have any questions about the TSP code, please feel free to contact *rq5 AT illinois DOT edu* .
 
