@@ -87,7 +87,7 @@ The test instances are originally provided by [Fu et al. (2021)](https://github.
 
 #### Trained Models
 
-Our trained models `tsp{N}_net*.pt` are in folder `output/`. Please put the reformatted test instances in folder `models/`.
+Our trained models `tsp{N}_net*.pt` are in folder `output/`.
 
 ### URLs of Baselines
 
