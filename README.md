@@ -119,3 +119,41 @@ cd MIS
 bash scripts/solve_intel_dimes_er.sh
 bash scripts/solve_intel_dimes_sat.sh
 ```
+
+### Data
+
+The evaluation data can be found at `MIS/data`.
+
+#### SAT
+
+For SATLIB (https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/CBS/descr_CBS.html), since the converted graphs are quite huge and the graphs are fixed. We only provide the file names test split, while the rest can be used for training.
+
+#### ER Graphs
+
+For ER graphs, since the graphs are randomly generated, we provide the gpickle version of the test graphs that we used for evaluation (in a shared Google drive link). The training graphs can be generated with another call of
+
+```bash 
+python -u main.py gendata \
+    random \
+    None \
+    data_er/train \
+    --model er \
+    --min_n 700 \
+    --max_n 800 \
+    --num_graphs 16384 \
+    --er_p 0.15
+```
+
+or
+
+```bash 
+python -u main.py gendata \
+    random \
+    None \
+    data_er_large/train \
+    --model er \
+    --min_n 9000 \
+    --max_n 11000 \
+    --num_graphs 4096 \
+    --er_p 0.02
+```
