@@ -126,7 +126,7 @@ The evaluation data can be found at `MIS/data`.
 
 #### SAT
 
-For SATLIB (https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/CBS/descr_CBS.html), since the converted graphs are quite huge and the graphs are fixed. We only provide the file names test split, while the rest can be used for training.
+For SATLIB (https://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/CBS/descr_CBS.html), since the converted graphs are quite huge and the graphs are fixed. We only provide the file names for the test split, while the rest can be used for training.
 
 #### ER Graphs
 
