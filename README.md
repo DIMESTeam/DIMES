@@ -94,6 +94,8 @@ Our trained models `tsp{N}_net*.pt` are in folder `output/`.
 - EAN (Deudon et al., 2018): https://github.com/MichelDeudon/encode-attend-navigate
 - AM (Kool et al., 2019): https://github.com/wouterkool/attention-learn-to-route
 - GCN (Joshi et al., 2019): https://github.com/chaitjo/graph-convnet-tsp
+- POMO (Kwon et al., 2020): https://github.com/yd-kwon/POMO
+- EAS (Hottung et al., 2022): https://github.com/ahottung/EAS
 - Att-GCN (Fu et al., 2021): https://github.com/Spider-SCNU/TSP (We use their CPU-version MCTS code.)
 
 ## DIMES-MIS
