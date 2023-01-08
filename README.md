@@ -21,6 +21,7 @@ We use $N$ to denote the number of nodes and $K$ to denote the number of neighbo
 
 ### Dependencies
 
+- GCC 7.5.0 on Ubuntu 18.04
 - CUDA 11.0
 - PyTorch 1.7.0
 - [PyTorch Scatter](https://github.com/rusty1s/pytorch_scatter) 2.0.7
