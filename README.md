@@ -39,7 +39,11 @@ We use $N$ to denote the number of nodes and $K$ to denote the number of neighbo
 
 #### Installation
 
-Before running our code, please ensure **PyTorch Scatter** is already installed and then install our TSP sampler:
+Before installing our TSP sampler, please ensure **PyTorch Scatter 2.0.7** is already installed.
+
+**Notice:** According to [this issue](https://github.com/DIMESTeam/DIMES/issues/2#issuecomment-1375406648), some later versions of PyTorch Scatter have different function names so they are incompatible with our TSP sampler.
+
+Then, install our TSP sampler:
 
 ```bash
 cd TSP
