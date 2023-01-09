@@ -21,6 +21,8 @@ We use $N$ to denote the number of nodes and $K$ to denote the number of neighbo
 
 ### Dependencies
 
+Our code was tested under the following dependencies:
+
 - GCC 7.5.0 on Ubuntu 18.04
 - CUDA 11.0
 - PyTorch 1.7.0
