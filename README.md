@@ -1,7 +1,6 @@
 # DIMES: A Differentiable Meta Solver for Combinatorial Optimization Problems
 
-[![NeurIPS](https://img.shields.io/badge/NeurIPS-2022-darkviolet)](https://openreview.net/forum?id=9u05zr0nhx)
-[![arXiv](https://img.shields.io/badge/arXiv-2210.04123-b31b1b)](https://arxiv.org/abs/2210.04123)
+[![NeurIPS](https://img.shields.io/badge/2022-NeurIPS-purple)](https://openreview.net/forum?id=9u05zr0nhx)
 
 A meta-learner for large-scale combinatorial optimization problems including the traveling salesman problem (TSP) and the maximum independent set problem (MIS).
 
