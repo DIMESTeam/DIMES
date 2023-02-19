@@ -21,7 +21,3 @@ Please refer to the code of TSP-KNN.
 ```
 [W OperatorEntry.cpp:111] Warning: Registering a kernel (registered by RegisterOperators) for operator torch_scatter::segment_sum_csr for dispatch key (catch all) that overwrote a previously registered kernel with the same dispatch key for the same operator. (function registerKernel)
 ```
-
-## Implementation Details
-
-TODO
