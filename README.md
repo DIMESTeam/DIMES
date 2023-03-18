@@ -47,7 +47,7 @@ Before installing our TSP sampler, please ensure **PyTorch Scatter 2.0.7** is al
 
 **Notice:** According to [this issue](https://github.com/DIMESTeam/DIMES/issues/2#issuecomment-1375406648), some later versions of PyTorch Scatter have different function names so they are incompatible with our TSP sampler.
 
-Then, install our TSP sampler:
+Install our TSP sampler:
 
 ```bash
 cd TSP
