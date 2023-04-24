@@ -33,6 +33,8 @@ Our code was tested under the following dependencies:
 - [PyTorch Cluster](https://github.com/rusty1s/pytorch_cluster) 1.5.9
 - [PyTorch Geometric](https://github.com/pyg-team/pytorch_geometric) 2.0.4
 
+**Notice:** According to [this issue](https://github.com/DIMESTeam/DIMES/issues/2#issuecomment-1375406648) and [this issue](https://github.com/DIMESTeam/DIMES/issues/4#issuecomment-1519964330), other versions of PyTorch Scatter may be incompatible with our TSP sampler.
+
 ### Usage
 
 **Notice:** If you see the following warning when running our code, just ignore it.
@@ -44,8 +46,6 @@ Our code was tested under the following dependencies:
 #### Installation
 
 Before installing our TSP sampler, please ensure **PyTorch Scatter 2.0.7** is already installed.
-
-**Notice:** According to [this issue](https://github.com/DIMESTeam/DIMES/issues/2#issuecomment-1375406648), some later versions of PyTorch Scatter have different function names so they are incompatible with our TSP sampler.
 
 Install our TSP sampler:
 
