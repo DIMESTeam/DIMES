@@ -33,7 +33,7 @@ Our code was tested under the following dependencies:
 - [PyTorch Cluster](https://github.com/rusty1s/pytorch_cluster) 1.5.9
 - [PyTorch Geometric](https://github.com/pyg-team/pytorch_geometric) 2.0.4
 
-**Notice:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), other versions of PyTorch Scatter may be incompatible with our TSP sampler.
+**Notice:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), some other versions of PyTorch Scatter are incompatible with our TSP sampler.
 
 ### Usage
 
