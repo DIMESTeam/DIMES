@@ -10,7 +10,7 @@ If you use our code, please cite [our paper](https://openreview.net/forum?id=9u0
 @inproceedings{qiu2022dimes,
   title={{DIMES}: A differentiable meta solver for combinatorial optimization problems},
   author={Ruizhong Qiu and Zhiqing Sun and Yiming Yang},
-  booktitle={Advances in Neural Information Processing Systems},
+  booktitle={Advances in Neural Information Processing Systems 35},
   year={2022}
 }
 ```
