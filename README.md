@@ -98,6 +98,10 @@ The test instances are originally provided by [Fu et al. (2021)](https://github.
 
 Our trained models `tsp{N}_net*.pt` are in folder `output/`.
 
+#### Heatmaps for MCTS
+
+The predicted heatmaps of DIMES+MCTS and DIMES+AS+MCTS are in folder `output/`.
+
 ### URLs of Baselines
 
 - EAN (Deudon et al., 2018): https://github.com/MichelDeudon/encode-attend-navigate
