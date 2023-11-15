@@ -102,6 +102,8 @@ Our trained models `tsp{N}_net*.pt` are in folder `output/`.
 
 The predicted heatmaps of DIMES+MCTS and DIMES+AS+MCTS are in folder `output/`.
 
+**Notice:** The TSP-10000 heatmaps are large after unzipping (around 900MB per graph).
+
 ### URLs of Baselines
 
 - EAN (Deudon et al., 2018): https://github.com/MichelDeudon/encode-attend-navigate
