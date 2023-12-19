@@ -27,13 +27,14 @@ Our code was tested under the following dependencies:
 
 - GCC 7.5.0 on Ubuntu 18.04
 - CUDA 11.0
+- Python 3.7.10 (packaged by `conda-forge`)
 - PyTorch 1.7.0
 - [PyTorch Scatter](https://github.com/rusty1s/pytorch_scatter) 2.0.7
 - [PyTorch Sparse](https://github.com/rusty1s/pytorch_sparse) 0.6.9
 - [PyTorch Cluster](https://github.com/rusty1s/pytorch_cluster) 1.5.9
 - [PyTorch Geometric](https://github.com/pyg-team/pytorch_geometric) 2.0.4
 
-**Notice:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), some other versions of PyTorch Scatter are incompatible with our TSP sampler.
+**Notice:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), some other versions of PyTorch Scatter can be incompatible with our TSP sampler.
 
 ### Usage
 
