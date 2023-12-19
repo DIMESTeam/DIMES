@@ -36,6 +36,15 @@ Our code was tested under the following dependencies:
 
 **Notice:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), some other versions of PyTorch Scatter can be incompatible with our TSP sampler.
 
+For your reference, we used the following commands to install dependencies:
+
+```bash
+pip install --no-index torch-scatter==2.0.7 -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+pip install --no-index torch-sparse==0.6.9 -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+pip install --no-index torch-cluster==1.5.9 -f https://pytorch-geometric.com/whl/torch-1.7.0+cu110.html
+pip install torch-geometric==2.0.4
+```
+
 ### Usage
 
 **Notice:** If you see the following warning when running our code, just ignore it.
