@@ -64,6 +64,8 @@ cd TSP
 pip install ./torch_sampling
 ```
 
+**Notice:** If the installer fails to find `-l_segment_csr_cpu` or `-l_segment_csr_cuda`, you may have to add their path to `torch_sampling/setup.py` manually. Please refer to [issue \#4](https://github.com/DIMESTeam/DIMES/issues/4#issuecomment-1863087703) for detail. We thank [@L-fu-des22](https://github.com/L-fu-des22) for sharing the experience about this issue.
+
 #### Reproduction
 
 To reproduce our results, please run:
