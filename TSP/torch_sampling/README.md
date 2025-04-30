@@ -4,7 +4,7 @@
 
 Before installing our TSP sampler, please ensure **PyTorch Scatter 2.0.7** is already installed.
 
-**Note:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), some other versions of PyTorch Scatter can be incompatible with our TSP sampler.
+**Note:** According to [issue #2](https://github.com/DIMESTeam/DIMES/issues/2) and [issue #4](https://github.com/DIMESTeam/DIMES/issues/4), some other versions of **PyTorch Scatter** can be incompatible with our TSP sampler. It has also been reported to us that later versions of **PyTorch** can also be incompatible.
 
 For your reference, we used the following commands to install dependencies:
 
